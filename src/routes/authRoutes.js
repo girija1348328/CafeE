@@ -1,10 +1,10 @@
-const express = require("express");
-const { register, login, getUserProfile } = require("../controllers/authController");
+import express from "express";
+import { register, login, getUserProfile } from "../controllers/authController.js"; // Ensure .js extension
 
 const router = express.Router();
 
 router.post("/register", register);
 router.post("/login", login);
-router.get("/me", getUserProfile); 
+router.get("/me", getUserProfile);
 
-module.exports = router;
+export default router;

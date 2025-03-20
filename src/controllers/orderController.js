@@ -1,8 +1,9 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
+
 const prisma = new PrismaClient();
 
 // ✅ Create an order
-exports.createOrder = async (req, res) => {
+export const createOrder = async (req, res) => {
     try {
         const { userId, items, orderType, address } = req.body;
 
@@ -56,7 +57,7 @@ exports.createOrder = async (req, res) => {
 };
 
 // ✅ Get all orders for a user
-exports.getUserOrders = async (req, res) => {
+export const getUserOrders = async (req, res) => {
     try {
         const { userId } = req.params;
 
@@ -73,7 +74,7 @@ exports.getUserOrders = async (req, res) => {
 };
 
 // ✅ Update order status
-exports.updateOrderStatus = async (req, res) => {
+export const updateOrderStatus = async (req, res) => {
     try {
         const { orderId } = req.params;
         const { status } = req.body;
